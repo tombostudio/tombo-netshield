@@ -126,7 +126,7 @@
   summary { cursor: pointer; font-weight: 600; }
   details p { margin: 8px 0 0; color: var(--muted); }
   code { background: var(--brand-soft); border-radius: 5px; padding: 1px 6px; font-size: 14px; }
-  footer { margin-top: 44px; color: var(--muted); font-size: 14px; text-align:center;}
+  footer { margin-top: 44px; color: var(--muted); font-size: 14px; }
 
   [lang-only] { display: none; }
   html[lang="vi"] [lang-only="vi"], html[lang="en"] [lang-only="en"] { display: revert; }
@@ -190,7 +190,7 @@
         </strong>
       </p>
       <p class="note">
-        <span lang-only="vi">Các truy vấn DNS không bị chặn được chuyển tiếp tới máy chủ DNS mà máy Mac của bạn vốn đang dùng; TomBo-NetShield không nhận chúng.</span>
+        <span lang-only="vi">Các truy vấn DNS không bị chặn được chuyển tiếp tới máy chủ DNS mà máy Mac của bạn vốn đang dùng; TomBo không nhận chúng.</span>
         <span lang-only="en">DNS queries that are not blocked are passed to the DNS server your Mac already uses; TomBo does not receive them.</span>
       </p>
     </div>
@@ -198,7 +198,7 @@
 
   <!-- ===================== SUPPORT ===================== -->
   <section id="support">
-    <h2>📩 <span lang-only="vi">Hỗ trợ - Góp ý</span><span lang-only="en">Support</span></h2>
+    <h2>📩 <span lang-only="vi">Hỗ trợ</span><span lang-only="en">Support</span></h2>
     <div class="panel">
       <p>Email: <a href="mailto:tombostudio9@gmail.com"><strong>tombostudio9@gmail.com</strong></a></p>
       <p style="margin-bottom:0">Feedback: <a href="https://tinyurl.com/tombo-netshield" target="_blank" rel="noopener"><strong>tinyurl.com/tombo-netshield</strong></a></p>
@@ -278,7 +278,7 @@
 
     <details>
       <summary><span lang-only="vi">Grant… báo app phải nằm trong thư mục Applications</span><span lang-only="en">Grant… says the app must be in the Applications folder</span></summary>
-      <p><span lang-only="vi">Kéo TomBo NetShield vào thư mục <code>Applications</code>, thoát app, rồi mở lại.</span>
+      <p><span lang-only="vi">Kéo TomBo NetShield vào thư mục <code>Applications</code>, thoát app, rồi mở lại từ đó (không mở thẳng từ cửa sổ DMG).</span>
          <span lang-only="en">Drag TomBo NetShield into the <code>Applications</code> folder, quit the app, then open it from there (not from the DMG window).</span></p>
     </details>
 
@@ -290,12 +290,18 @@
 
     <details>
       <summary><span lang-only="vi">Muốn tắt hoặc gỡ</span><span lang-only="en">How to turn it off or remove it</span></summary>
-      <p><span lang-only="vi">Tắt tạm thời: dùng công tắc <strong>Bật bảo vệ</strong> trên menu của app. Gỡ hoàn toàn: tắt công tắc ở Network Extensions rồi kéo app vào Thùng rác.</span>
-         <span lang-only="en">To pause: use the <strong>Protection on</strong> switch in the app menu. To remove completely: turn the switch off in Network Extensions, then move the app to the Trash.</span></p>
+      <p><span lang-only="vi">Tắt tạm thời: dùng công tắc <strong>Bật bảo vệ</strong> trên menu của app.<br>
+         <strong>Gỡ hoàn toàn:</strong> mở app → <strong>Settings</strong> → <strong>Gỡ cài đặt hoàn toàn…</strong> (macOS sẽ hỏi mật khẩu). App tự gỡ tiện ích mạng, xóa dữ liệu và chuyển chính nó vào Thùng rác. Sau đó khởi động lại máy để macOS dọn sạch.<br>
+         Đừng chỉ kéo app vào Thùng rác: macOS không phải lúc nào cũng gỡ tiện ích đi kèm, và tiện ích có thể còn sót lại.</span>
+         <span lang-only="en">To pause: use the <strong>Protection on</strong> switch in the app menu.<br>
+         <strong>To remove completely:</strong> open the app → <strong>Settings</strong> → <strong>Uninstall completely…</strong> (macOS asks for your password). The app removes the network extension, deletes its data and moves itself to the Trash. Then restart your Mac so macOS can finish cleaning up.<br>
+         Do not just drag the app to the Trash: macOS does not always remove the bundled extension, so it can be left behind.</span></p>
+      <p><span lang-only="vi">Đã lỡ xóa app mà tiện ích còn sót? Cài lại TomBo NetShield, mở Settings → Gỡ cài đặt hoàn toàn…</span>
+         <span lang-only="en">Already deleted the app and the extension is still there? Reinstall TomBo NetShield, open Settings → Uninstall completely…</span></p>
     </details>
   </section>
 
-  <footer>© <script>document.write(new Date().getFullYear())</script> by <a href="https://www.facebook.com/tombostudio" target="_blank">TomBo Studio</a></footer>
+  <footer>© TomBo Studio</footer>
 
 </div>
 
