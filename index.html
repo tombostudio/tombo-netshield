@@ -43,7 +43,7 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, Roboto,"Segoe UI", Arial, sans-serif;
   }
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px 64px; }
 
@@ -67,6 +67,7 @@
   }
   .lang button[aria-pressed="true"] { background: var(--brand); color: #fff; }
   .lang button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+  .lang button img{width:20px;vertical-align: sub;border-radius:3px;margin-right:4px;box-shadow:1px 2px 3px #3333;}
 
   .intro {
     background: var(--brand-soft); border: 1px solid var(--line); border-radius: 14px;
@@ -119,7 +120,7 @@
 
   <header>
     <div class="logo">
-      <img src="images/app-icon.png" alt="" onerror="this.remove()">
+      <img src="https://i.imgur.com/zIgVe5O.png" alt="" onerror="this.remove()">
       <span aria-hidden="true">TomBo</span>
     </div>
     <div class="titles">
@@ -130,8 +131,8 @@
       </p>
     </div>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang="vi" aria-pressed="true">🇻🇳 Tiếng Việt</button>
-      <button type="button" data-lang="en" aria-pressed="false">🇬🇧 English</button>
+      <button type="button" data-lang="vi" aria-pressed="true"><img src="https://cdn.jsdelivr.net/npm/flag-icons@7.5.0/flags/4x3/vn.svg">Tiếng Việt</button>
+      <button type="button" data-lang="en" aria-pressed="false"><img src="https://cdn.jsdelivr.net/npm/flag-icons@7.5.0/flags/4x3/gb.svg">English</button>
     </div>
   </header>
 
@@ -240,7 +241,7 @@
   var saved = null;
   try { saved = localStorage.getItem('tombo-lang'); } catch (e) {}
   var param = new URLSearchParams(location.search).get('lang');   // ví dụ ...setup-guide.html?lang=en
-  var initial = param || saved || ((navigator.language || 'vi').toLowerCase().indexOf('vi') === 0 ? 'vi' : 'en');
+  var initial = param  saved  ((navigator.language  'vi').toLowerCase().indexOf('vi') === 0 ? 'vi' : 'en');
   setLang(initial === 'en' ? 'en' : 'vi');
   buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
 })();
