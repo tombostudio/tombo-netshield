@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TomBo NetShield Setup</title>
+<meta name="description" content="Hướng dẫn cấp quyền cho TomBo NetShield trên macOS / How to enable TomBo NetShield on macOS">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --card: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6b6b70;
+    --line: #e7e4df;
+    --brand: #ff5a1f;
+    --brand-2: #ff9a1e;
+    --brand-soft: #fff1e8;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  }
+  :root[data-theme="dark"] {
+    --bg: #17171a;
+    --card: #222226;
+    --text: #f3f3f5;
+    --muted: #a0a0a8;
+    --line: #34343a;
+    --brand-soft: #35231a;
+    --shadow: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17171a;
+      --card: #222226;
+      --text: #f3f3f5;
+      --muted: #a0a0a8;
+      --line: #34343a;
+      --brand-soft: #35231a;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px 64px; }
+
+  header { padding: 40px 0 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .logo {
+    width: 64px; height: 64px; border-radius: 15px;
+    background: var(--card); box-shadow: var(--shadow);
+    display: grid; place-items: center; overflow: hidden; flex: none;
+  }
+  .logo img { width: 100%; height: 100%; display: block; }
+  .logo span { font-weight: 800; color: var(--brand); font-size: 15px; }
+  .titles { flex: 1 1 260px; min-width: 0; }
+  h1 { margin: 0; font-size: 28px; line-height: 1.2; letter-spacing: -.01em; }
+  h1 b { color: var(--brand); }
+  .sub { margin: 4px 0 0; color: var(--muted); }
+
+  .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--card); }
+  .lang button {
+    border: 0; background: transparent; color: var(--muted); cursor: pointer;
+    font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px;
+  }
+  .lang button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+  .lang button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+  .intro {
+    background: var(--brand-soft); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px; margin: 0 0 28px;
+  }
+
+  ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 18px; }
+  ol.steps > li {
+    counter-increment: s; background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; padding: 18px; box-shadow: var(--shadow);
+  }
+  .row { display: flex; gap: 14px; align-items: flex-start; }
+  .num {
+    flex: none; width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(180deg, var(--brand-2), var(--brand)); color: #fff;
+    display: grid; place-items: center; font-weight: 700; font-size: 15px;
+  }
+  .num::before { content: counter(s); }
+  .step-text { flex: 1; min-width: 0; padding-top: 3px; }
+  .step-text strong { font-weight: 650; }
+  .path { color: var(--muted); font-size: 14px; }
+  kbd, .chip {
+    font: inherit; font-size: 14px; background: var(--brand-soft); color: var(--text);
+    border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; white-space: nowrap;
+  }
+
+  figure { margin: 14px 0 0; }
+  figure img {
+    width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line);
+  }
+  .slot {
+    display: none; border: 2px dashed var(--line); border-radius: 10px; padding: 26px 12px;
+    text-align: center; color: var(--muted); font-size: 14px;
+  }
+  figure.missing img { display: none; }
+  figure.missing .slot { display: block; }
+
+  h2 { font-size: 20px; margin: 40px 0 12px; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 10px 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 8px 0 0; color: var(--muted); }
+  code { background: var(--brand-soft); border-radius: 5px; padding: 1px 6px; font-size: 14px; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 14px; }
+  [lang-only] { display: none; }
+  html[lang="vi"] [lang-only="vi"], html[lang="en"] [lang-only="en"] { display: revert; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <img src="images/app-icon.png" alt="" onerror="this.remove()">
+      <span aria-hidden="true">TomBo</span>
+    </div>
+    <div class="titles">
+      <h1>TomBo <b>NetShield</b></h1>
+      <p class="sub">
+        <span lang-only="vi">Hướng dẫn cấp quyền chặn mạng trên macOS</span>
+        <span lang-only="en">How to enable network blocking on macOS</span>
+      </p>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="vi" aria-pressed="true">🇻🇳 Tiếng Việt</button>
+      <button type="button" data-lang="en" aria-pressed="false">🇬🇧 English</button>
+    </div>
+  </header>
+
+  <p class="intro">
+    <span lang-only="vi">Lần đầu mở app, bấm <kbd>Grant…</kbd> trong tab Settings. macOS sẽ yêu cầu bạn bật tiện ích mạng của TomBo NetShield. Nếu Cài đặt hệ thống không tự mở, hãy làm theo 7 bước dưới đây. Chỉ cần làm một lần.</span>
+    <span lang-only="en">The first time you open the app, click <kbd>Grant…</kbd> in the Settings tab. macOS will ask you to turn on the TomBo NetShield network extension. If System Settings does not open by itself, follow the 7 steps below. You only need to do this once.</span>
+  </p>
+
+  <ol class="steps">
+
+    <li>
+      <div class="row"><div class="num"></div><div class="step-text">
+        <span lang-only="vi"><strong>Mở Cài đặt hệ thống</strong> (System Settings).</span>
+        <span lang-only="en"><strong>Open System Settings.</strong></span>
+        <figure><img src="images/step-1.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-1.png</div></figure>
+      </div></div>
+    </li>
+
+    <li>
+      <div class="row"><div class="num"></div><div class="step-text">
+        <span lang-only="vi">Chọn <strong>Cài đặt chung</strong> → <strong>Mục đăng nhập &amp; tiện ích mở rộng</strong>.<br><span class="path">(English: General → Login Items &amp; Extensions)</span></span>
+        <span lang-only="en">Select <strong>General</strong> → <strong>Login Items &amp; Extensions</strong>.</span>
+        <figure><img src="images/step-2.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-2.png</div></figure>
+      </div></div>
+    </li>
+
+    <li>
+      <div class="row"><div class="num"></div><div class="step-text">
+        <span lang-only="vi">Cuộn xuống phần <strong>Tiện ích mở rộng</strong> (Extensions) → chọn <strong>Network Extensions</strong>.</span>
+        <span lang-only="en">Scroll to <strong>Extensions</strong> → choose <strong>Network Extensions</strong>.</span>
+        <figure><img src="images/step-3.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-3.png</div></figure>
+      </div></div>
+    </li>
+
+    <li>
+      <div class="row"><div class="num"></div><div class="step-text">
+        <span lang-only="vi">Tìm <strong>TomBo NetShield</strong> (có thể hiện kèm chữ “DNS”) và bấm nút <span class="chip">ⓘ</span> bên cạnh.</span>
+        <span lang-only="en">Find <strong>TomBo NetShield</strong> (it may show with “DNS” after the name) and click the <span class="chip">ⓘ</span> button next to it.</span>
+        <figure><img src="images/step-4.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-4.png</div></figure>
+      </div></div>
+    </li>
+
+    <li>
+      <div class="row"><div class="num"></div><div class="step-text">
+        <span lang-only="vi"><strong>Bật công tắc</strong> của TomBo NetShield. macOS có thể yêu cầu mật khẩu hoặc Touch ID.</span>
+        <span lang-only="en"><strong>Turn on</strong> the TomBo NetShield switch. macOS may ask for your password or Touch ID.</span>
+        <figure><img src="images/step-5.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-5.png</div></figure>
+      </div></div>
+    </li>
+
+    <li>
+      <div class="row"><div class="num"></div><div class="step-text">
+        <span lang-only="vi">Quay lại app <strong>TomBo NetShield</strong> và chờ vài giây cho đến khi macOS hiện hộp thoại xin quyền <strong>DNS Proxy</strong>.</span>
+        <span lang-only="en">Return to <strong>TomBo NetShield</strong> and wait a few seconds until macOS shows the <strong>DNS Proxy</strong> permission dialog.</span>
+        <figure><img src="images/step-6.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-6.png</div></figure>
+      </div></div>
+    </li>
+
+    <li>
+      <div class="row"><div class="num"></div><div class="step-text">
+        <span lang-only="vi">Bấm <span class="chip">Cho phép</span> (Allow). Xong! Biểu tượng khiên trên thanh menu sẽ chuyển sang trạng thái đang bảo vệ.</span>
+        <span lang-only="en">Click <span class="chip">Allow</span>. Done! The shield icon in the menu bar switches to the protecting state.</span>
+        <figure><img src="images/step-7.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-7.png</div></figure>
+      </div></div>
+    </li>
+
+  </ol>
+
+  <h2><span lang-only="vi">Gặp sự cố?</span><span lang-only="en">Having trouble?</span></h2>
+
+  <details>
+    <summary><span lang-only="vi">Grant… báo app phải nằm trong thư mục Applications</span><span lang-only="en">Grant… says the app must be in the Applications folder</span></summary>
+    <p><span lang-only="vi">Kéo TomBo NetShield vào thư mục <code>Applications</code>, thoát app, rồi mở lại từ đó (không mở thẳng từ cửa sổ DMG).</span>
+       <span lang-only="en">Drag TomBo NetShield into the <code>Applications</code> folder, quit the app, then open it from there (not from the DMG window).</span></p>
+  </details>
+
+  <details>
+    <summary><span lang-only="vi">Không thấy TomBo NetShield trong danh sách Network Extensions</span><span lang-only="en">TomBo NetShield is missing from Network Extensions</span></summary>
+    <p><span lang-only="vi">Quay lại app, bấm <kbd>Grant…</kbd> một lần nữa, rồi mở lại danh sách. Nếu vẫn không thấy, thoát hẳn app và mở lại.</span>
+       <span lang-only="en">Go back to the app, click <kbd>Grant…</kbd> again, then reopen the list. If it is still missing, quit the app completely and reopen it.</span></p>
+  </details>
+
+  <details>
+    <summary><span lang-only="vi">Muốn tắt hoặc gỡ</span><span lang-only="en">How to turn it off or remove it</span></summary>
+    <p><span lang-only="vi">Tắt tạm thời: dùng công tắc <strong>Bật bảo vệ</strong> trên menu của app. Gỡ hoàn toàn: tắt công tắc ở Network Extensions rồi kéo app vào Thùng rác.</span>
+       <span lang-only="en">To pause: use the <strong>Protection on</strong> switch in the app menu. To remove completely: turn the switch off in Network Extensions, then move the app to the Trash.</span></p>
+  </details>
+
+  <footer>
+    <span lang-only="vi">TomBo NetShield chỉ xử lý truy vấn DNS trên máy của bạn để chặn tên miền quảng cáo; không gửi dữ liệu duyệt web đi đâu.</span>
+    <span lang-only="en">TomBo NetShield only handles DNS queries on your Mac to block ad domains; it does not send your browsing data anywhere.</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var html = document.documentElement;
+  var buttons = document.querySelectorAll('.lang button');
+  function setLang(l) {
+    html.setAttribute('lang', l);
+    document.title = l === 'vi' ? 'TomBo NetShield – Hướng dẫn' : 'TomBo NetShield – Setup';
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+    try { localStorage.setItem('tombo-lang', l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('tombo-lang'); } catch (e) {}
+  var param = new URLSearchParams(location.search).get('lang');   // ví dụ ...setup-guide.html?lang=en
+  var initial = param || saved || ((navigator.language || 'vi').toLowerCase().indexOf('vi') === 0 ? 'vi' : 'en');
+  setLang(initial === 'en' ? 'en' : 'vi');
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+})();
+</script>
+</body>
+</html>
