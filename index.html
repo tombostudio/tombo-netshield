@@ -111,10 +111,11 @@
   kbd, .chip {
     font: inherit; font-size: 14px; background: var(--brand-soft); color: var(--text);
     border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; white-space: nowrap;
+    background:#ccc6;
   }
 
   figure { margin: 14px 0 0; }
-  figure img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); }
+  figure img { width: 100%; height: auto; display: block; border-radius: 10px; border: 0 solid var(--line); }
   .slot {
     display: none; border: 2px dashed var(--line); border-radius: 10px; padding: 26px 12px;
     text-align: center; color: var(--muted); font-size: 14px;
@@ -210,8 +211,8 @@
     <h2>⚙️ <span lang-only="vi">Hướng dẫn cài đặt</span><span lang-only="en">Setup guide</span></h2>
 
     <p class="intro">
-      <span lang-only="vi">Lần đầu mở app, bấm <kbd>Grant…</kbd> trong tab Settings. macOS sẽ yêu cầu bạn bật tiện ích mạng của TomBo NetShield. Nếu Cài đặt hệ thống không tự mở, hãy làm theo 7 bước dưới đây. Chỉ cần làm một lần.</span>
-      <span lang-only="en">The first time you open the app, click <kbd>Grant…</kbd> in the Settings tab. macOS will ask you to turn on the TomBo NetShield network extension. If System Settings does not open by itself, follow the 7 steps below. You only need to do this once.</span>
+      <span lang-only="vi">Lần đầu mở app, bấm <kbd>Grant…</kbd> trong tab Settings. macOS sẽ yêu cầu bạn bật tiện ích mạng của TomBo NetShield. Nếu Cài đặt hệ thống không tự mở, hãy làm theo các bước dưới đây. Chỉ cần làm một lần.</span>
+      <span lang-only="en">The first time you open the app, click <kbd>Grant…</kbd> in the Settings tab. macOS will ask you to turn on the TomBo NetShield network extension. If System Settings does not open by itself, follow steps below. You only need to do this once.</span>
     </p>
 
     <ol class="steps">
@@ -220,7 +221,7 @@
         <div class="row"><div class="num"></div><div class="step-text">
           <span lang-only="vi"><strong>Mở Cài đặt hệ thống</strong> (System Settings).</span>
           <span lang-only="en"><strong>Open System Settings.</strong></span>
-          <figure><img src="images/step-1.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-1.png</div></figure>
+          <figure><img src="https://i.imgur.com/nnQtwFu.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')" style="max-width:280px"><div class="slot">images/step-1.png</div></figure>
         </div></div>
       </li>
 
@@ -228,7 +229,7 @@
         <div class="row"><div class="num"></div><div class="step-text">
           <span lang-only="vi">Chọn <strong>Cài đặt chung</strong> → <strong>Mục đăng nhập &amp; tiện ích mở rộng</strong>.<br><span class="path">(English: General → Login Items &amp; Extensions)</span></span>
           <span lang-only="en">Select <strong>General</strong> → <strong>Login Items &amp; Extensions</strong>.</span>
-          <figure><img src="images/step-2.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-2.png</div></figure>
+          <figure><img src="https://i.imgur.com/TNxu2qa.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')" style="max-width:600px"><div class="slot">images/step-2.png</div></figure>
         </div></div>
       </li>
 
@@ -236,7 +237,7 @@
         <div class="row"><div class="num"></div><div class="step-text">
           <span lang-only="vi">Cuộn xuống phần <strong>Tiện ích mở rộng</strong> (Extensions) → chọn <strong>Network Extensions</strong>.</span>
           <span lang-only="en">Scroll to <strong>Extensions</strong> → choose <strong>Network Extensions</strong>.</span>
-          <figure><img src="images/step-3.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-3.png</div></figure>
+          <figure><img src="https://i.imgur.com/galeRAe.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')" style="max-width:600px"><div class="slot">images/step-3.png</div></figure>
         </div></div>
       </li>
 
@@ -244,43 +245,13 @@
         <div class="row"><div class="num"></div><div class="step-text">
           <span lang-only="vi">Tìm <strong>TomBo NetShield</strong> (có thể hiện kèm chữ “DNS”) và bấm nút <span class="chip">ⓘ</span> bên cạnh.</span>
           <span lang-only="en">Find <strong>TomBo NetShield</strong> (it may show with “DNS” after the name) and click the <span class="chip">ⓘ</span> button next to it.</span>
-          <figure><img src="images/step-4.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-4.png</div></figure>
-        </div></div>
-      </li>
-
-      <li>
-        <div class="row"><div class="num"></div><div class="step-text">
-          <span lang-only="vi"><strong>Bật công tắc</strong> của TomBo NetShield. macOS có thể yêu cầu mật khẩu hoặc Touch ID.</span>
-          <span lang-only="en"><strong>Turn on</strong> the TomBo NetShield switch. macOS may ask for your password or Touch ID.</span>
-          <figure><img src="images/step-5.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-5.png</div></figure>
-        </div></div>
-      </li>
-
-      <li>
-        <div class="row"><div class="num"></div><div class="step-text">
-          <span lang-only="vi">Quay lại app <strong>TomBo NetShield</strong> và chờ vài giây cho đến khi macOS hiện hộp thoại xin quyền <strong>DNS Proxy</strong>.</span>
-          <span lang-only="en">Return to <strong>TomBo NetShield</strong> and wait a few seconds until macOS shows the <strong>DNS Proxy</strong> permission dialog.</span>
-          <figure><img src="images/step-6.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-6.png</div></figure>
-        </div></div>
-      </li>
-
-      <li>
-        <div class="row"><div class="num"></div><div class="step-text">
-          <span lang-only="vi">Bấm <span class="chip">Cho phép</span> (Allow). Xong! Biểu tượng khiên trên thanh menu sẽ chuyển sang trạng thái đang bảo vệ.</span>
-          <span lang-only="en">Click <span class="chip">Allow</span>. Done! The shield icon in the menu bar switches to the protecting state.</span>
-          <figure><img src="images/step-7.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')"><div class="slot">images/step-7.png</div></figure>
+          <figure><img src="https://i.imgur.com/h7FFjM4.png" alt="" loading="lazy" onerror="this.parentNode.classList.add('missing')" style="max-width:280px"><div class="slot">images/step-4.png</div></figure>
         </div></div>
       </li>
 
     </ol>
 
     <h3><span lang-only="vi">Gặp sự cố?</span><span lang-only="en">Having trouble?</span></h3>
-
-    <details>
-      <summary><span lang-only="vi">Grant… báo app phải nằm trong thư mục Applications</span><span lang-only="en">Grant… says the app must be in the Applications folder</span></summary>
-      <p><span lang-only="vi">Kéo TomBo NetShield vào thư mục <code>Applications</code>, thoát app, rồi mở lại từ đó (không mở thẳng từ cửa sổ DMG).</span>
-         <span lang-only="en">Drag TomBo NetShield into the <code>Applications</code> folder, quit the app, then open it from there (not from the DMG window).</span></p>
-    </details>
 
     <details>
       <summary><span lang-only="vi">Không thấy TomBo NetShield trong danh sách Network Extensions</span><span lang-only="en">TomBo NetShield is missing from Network Extensions</span></summary>
@@ -291,17 +262,17 @@
     <details>
       <summary><span lang-only="vi">Muốn tắt hoặc gỡ</span><span lang-only="en">How to turn it off or remove it</span></summary>
       <p><span lang-only="vi">Tắt tạm thời: dùng công tắc <strong>Bật bảo vệ</strong> trên menu của app.<br>
-         <strong>Gỡ hoàn toàn:</strong> mở app → <strong>Settings</strong> → <strong>Gỡ cài đặt hoàn toàn…</strong> (macOS sẽ hỏi mật khẩu). App tự gỡ tiện ích mạng, xóa dữ liệu và chuyển chính nó vào Thùng rác. Sau đó khởi động lại máy để macOS dọn sạch.<br>
+         <strong>Gỡ hoàn toàn:</strong> mở app → <strong>Cài đặt</strong> → <strong>Gỡ cài đặt hoàn toàn…</strong> (macOS sẽ hỏi mật khẩu). App tự gỡ tiện ích mạng, xóa dữ liệu và chuyển chính nó vào Thùng rác. Sau đó khởi động lại máy để macOS dọn sạch.<br><br>
          Đừng chỉ kéo app vào Thùng rác: macOS không phải lúc nào cũng gỡ tiện ích đi kèm, và tiện ích có thể còn sót lại.</span>
          <span lang-only="en">To pause: use the <strong>Protection on</strong> switch in the app menu.<br>
-         <strong>To remove completely:</strong> open the app → <strong>Settings</strong> → <strong>Uninstall completely…</strong> (macOS asks for your password). The app removes the network extension, deletes its data and moves itself to the Trash. Then restart your Mac so macOS can finish cleaning up.<br>
+         <strong>To remove completely:</strong> open the app → <strong>Settings</strong> → <strong>Uninstall completely…</strong> (macOS asks for your password). The app removes the network extension, deletes its data and moves itself to the Trash. Then restart your Mac so macOS can finish cleaning up.<br><br>
          Do not just drag the app to the Trash: macOS does not always remove the bundled extension, so it can be left behind.</span></p>
-      <p><span lang-only="vi">Đã lỡ xóa app mà tiện ích còn sót? Cài lại TomBo NetShield, mở Settings → Gỡ cài đặt hoàn toàn…</span>
+      <p><span lang-only="vi">Đã lỡ xóa app mà tiện ích còn sót?<br>Cài lại TomBo NetShield, mở Cài đặt → Gỡ cài đặt hoàn toàn…</span>
          <span lang-only="en">Already deleted the app and the extension is still there? Reinstall TomBo NetShield, open Settings → Uninstall completely…</span></p>
     </details>
   </section>
 
-  <footer>© TomBo Studio</footer>
+  <footer style="text-align:center;">© <script>document.write(new Date().getFullYear())</script> <a hreF="https://www.facebook.com/tombostudio" target="_blank">TomBo Studio</a></footer>
 
 </div>
 
